@@ -4,77 +4,84 @@
             "ItemName": "Chasseur devant sa proie",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 44410
+                "instanceID": 189662
             }
         },
         {
             "ItemName": "Statuette02",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 62798
+                "instanceID": 213164
             }
         },
         {
             "ItemName": "Statuette03",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 51472
+                "instanceID": 198394
             }
         },
         {
             "ItemName": "Bison laineux",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 55432
+                "instanceID": 203564
             }
         },
         {
             "ItemName": "Ours vigilant",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 53882
+                "instanceID": 206038
             }
         },
         {
             "ItemName": "Morse tranquille",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 60038
+                "instanceID": 209500
             }
         },
         {
             "ItemName": "Statuette07",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 48856
+                "instanceID": 195156
             }
         },
         {
             "ItemName": "Statuette08",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 42986
+                "instanceID": 187790
             }
         },
         {
             "ItemName": "Phoque au repos",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 52924
+                "instanceID": 201552
             }
         },
         {
             "ItemName": "Baleine bleue",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 59258
+                "instanceID": 200174
             }
         },
         {
             "ItemName": "Totem ancien",
             "IsCollected": false,
             "CollectibleGameObject": {
-                "instanceID": 58988
+                "instanceID": 208560
+            }
+        },
+        {
+            "ItemName": "Totem ancien",
+            "IsCollected": false,
+            "CollectibleGameObject": {
+                "instanceID": 208242
             }
         }
     ]
