@@ -47,7 +47,6 @@ namespace Collectible
         {
             gameObject.SetActive(false);
             OnCollected.Invoke();
-            CharacterManager.Instance.ExperienceManagerProperty.AddExperience(CharacterManager.Instance.ExperienceManagerProperty.Data.ExperienceGainedAtCollectible);
             
             CollectibleJsonFileManager instance = JsonFilesManagerSingleton.Instance.CollectibleJsonFileManagerProperty;
             if (instance != null)

@@ -18,17 +18,6 @@ namespace Enemies.Shark.State
 
         public override void EnterState(SharkManager sharkManager)
         {
-            _state = FreeRoamState.RotateToMoveTarget;
-            CharacterManager.Instance.EnemyUIManager.DisableEnemyUI();
-
-            sharkManager.SharkCollider.enabled = false;
-
-            Transform shark = sharkManager.transform;
-            Vector3 rotation = shark.localEulerAngles;
-            rotation.x = 0;
-            rotation.y = 0;
-            rotation.z = 0;
-            shark.localEulerAngles = rotation;
         }
 
         public override void UpdateState(SharkManager sharkManager)

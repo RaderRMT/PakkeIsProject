@@ -59,52 +59,10 @@ namespace Character.State
 
         public override void ExitState(CharacterManager character)
         {
-            CharacterManagerRef.WeaponChargedParticleSystem.Stop();
-
-            CharacterManagerRef.WeaponUIManagerProperty.SetCombatWeaponUI(false);
-            CharacterManagerRef.WeaponUIManagerProperty.SetCooldownUI(0);
-
-            CharacterManagerRef.WeaponUIManagerProperty.AutoAimController.ShowAutoAimCircle(false);
-            CharacterManagerRef.WeaponUIManagerProperty.AutoAimController.ShowAutoAimUI(false);
-            
-            //CharacterManagerRef.IKPlayerControl.SetPaddle();
-            CharacterManagerRef.IKPlayerControl.CurrentType = IKType.Paddle;
         }
 
         private void LaunchState()
         {
-            CharacterManagerRef.WeaponUIManagerProperty.SetCombatWeaponUI(true);
-
-            _weaponPrefab = CharacterManagerRef.CurrentProjectile;
-
-            CharacterManagerRef.WeaponUIManagerProperty.AutoAimController.ShowAutoAimCircle(true);
-
-            switch (_weaponPrefab.Data.Type)
-            {
-                case WeaponType.Harpoon:
-                    CharacterManagerRef.HarpoonMeshController.LaunchDissolveUp();
-                    
-                    CharacterManagerRef.IKPlayerControl.CurrentType = IKType.Harpoon;
-                    CharacterManagerRef.IKPlayerControl.SetHarpoon();
-                    
-                    CharacterManagerRef.HarpoonAnimator.SetBool("IdleHarpoon", true);
-                    CharacterManagerRef.CharacterAnimatorProperty.SetBool("IdleHarpoon", true);
-                    break;
-                case WeaponType.Net:
-                    CharacterManagerRef.NetMeshController.LaunchDissolveUp();
-                    
-                    CharacterManagerRef.IKPlayerControl.CurrentType = IKType.Net;
-                    CharacterManagerRef.IKPlayerControl.SetNet();
-                    
-                    CharacterManagerRef.NetAnimator.SetBool("IdleNet", true);
-                    CharacterManagerRef.CharacterAnimatorProperty.SetBool("IdleNet", true);
-                    break;
-            }
-
-            CameraCombatState cameraCombatState = new CameraCombatState();
-            CharacterManagerRef.CameraManagerProperty.SwitchState(cameraCombatState);
-            
-            _hasLaunched = true;
         }
         
         #endregion
@@ -247,26 +205,6 @@ namespace Character.State
             {
                 _hittable = null;
             }
-            
-            //if null
-            if (_hittable == null)
-            {
-                if (_currentHittableAimTime != 0)
-                {
-                    CharacterManagerRef.WeaponUIManagerProperty.AutoAimController.ShowAutoAimUI(false);
-                }
-                _currentHittableAimTime = 0;
-                return;
-            }
-            
-            //manage 
-            if (_currentHittableAimTime == 0)
-            {
-                CharacterManagerRef.WeaponUIManagerProperty.AutoAimController.ShowAutoAimUI(true);
-            }
-            _currentHittableAimTime += Time.deltaTime * CharacterManagerRef.PlayerStats.ChargeTimeReducingMultiplier;
-            float percentage = _currentHittableAimTime / CharacterManagerRef.Data.TimeToAutoAim;
-            CharacterManagerRef.WeaponUIManagerProperty.AutoAimController.SetAutoAimUI(percentage, _hittable.Transform.position);
         }
 
         private IHittable GetAutoAimHittable()

@@ -143,12 +143,6 @@ namespace Enemies.Shark
 
         protected override void Die()
         {
-            base.Die();
-            
-            PlayerTriggerManager.enabled = false;
-            PointTarget.transform.localPosition = new Vector3(0, 0, 0);
-            
-            SetPlayerExperience(CharacterManager.Instance.ExperienceManagerProperty.Data.ExperienceGainedAtEnemyShark);
         }
 
         private void ManagerCircleUI()

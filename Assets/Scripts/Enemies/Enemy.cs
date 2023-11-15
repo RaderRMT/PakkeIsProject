@@ -29,15 +29,6 @@ namespace Enemies
 
         protected void HandlePlayerDistanceToSetUI(Transform player, float distance)
         {
-            if (Vector3.Distance(transform.position, player.position) > distance || CurrentLife <= 0)
-            {
-                CharacterManager.Instance.EnemyUIManager.DisableEnemyUI();
-            }
-            else
-            {
-                CharacterManager.Instance.EnemyUIManager.ActiveEnemyUI(EnemySprite);
-                CharacterManager.Instance.EnemyUIManager.SetScreenPositionFromEnemyPosition(transform.position);
-            }
         }
 
         public virtual void Hit(Projectile projectile, GameObject owner, int damage)
@@ -63,32 +54,18 @@ namespace Enemies
 
         protected virtual void Die()
         {
-            OnDie.Invoke();
-            
-            CharacterManager.Instance.EnemyUIManager.DisableEnemyUI();
-            IsPossessed = false;
-
-            if (PossessedVisualGameObject != null)
-            {
-                PossessedVisualGameObject.SetActive(false);
-            }
         }
 
         public virtual void SetUpStartEnemyUI()
         {
-            UIEnemyManager enemyUI = CharacterManager.Instance.EnemyUIManager;
-            enemyUI.ActiveEnemyUI(EnemySprite);
-            enemyUI.SetGauge(CurrentLife, MaxLife);
         }
 
         protected virtual void SetEnemyLifeUIGauge()
         {
-            CharacterManager.Instance.EnemyUIManager.SetGauge(CurrentLife, MaxLife);
         }
 
         protected virtual void SetPlayerExperience(float value)
         {
-            CharacterManager.Instance.ExperienceManagerProperty.AddExperience(value);
         }
     }
 }

@@ -116,14 +116,6 @@ namespace Character.State
                 
             CharacterNavigationState characterNavigationState = new CharacterNavigationState();
             character.SwitchState(characterNavigationState);
-
-            character.WeaponUIManagerProperty.SetCombatWeaponUI(false);
-            character.WeaponUIManagerProperty.SetCooldownUI(0);
-            
-            character.WeaponUIManagerProperty.AutoAimController.ShowAutoAimCircle(false);
-            character.WeaponUIManagerProperty.AutoAimController.ShowAutoAimUI(false);
-            
-            character.WeaponUIManagerProperty.SetLastSelectedPaddle();
             
             CharacterManagerRef.IKPlayerControl.CurrentType = IKType.Paddle;
         }

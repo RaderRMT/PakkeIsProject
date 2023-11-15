@@ -39,7 +39,6 @@ namespace GPEs.Checkpoint
                 return;
             }
             
-            CharacterManager.Instance.CheckpointManagerProperty.SetCheckpoint(this);
             _hasBeenUsed = true;
             
             _activationParticles.Play();
@@ -59,8 +58,6 @@ namespace GPEs.Checkpoint
 
         private void SetPlayerExperience()
         {
-            float value = CharacterManager.Instance.ExperienceManagerProperty.Data.ExperienceGainedAtCheckpoint;
-            CharacterManager.Instance.ExperienceManagerProperty.AddExperience(value);
         }
 
 #if UNITY_EDITOR

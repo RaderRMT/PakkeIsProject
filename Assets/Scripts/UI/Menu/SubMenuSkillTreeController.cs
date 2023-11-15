@@ -76,7 +76,6 @@ namespace UI.Menu
 
         private void SetSkillsPoints()
         {
-            _skillPointsText.text = CharacterManager.Instance.ExperienceManagerProperty.SkillPoints.ToString();
         }
 
         #region Direction
@@ -165,25 +164,6 @@ namespace UI.Menu
 
         private void ActivateSkill()
         {
-            if (CharacterManager.Instance.ExperienceManagerProperty.SkillPoints <= 0 ||
-                _currentTile.CanBeActivated() == false || IsActive == false || IsUsable == false)
-            {
-                return;
-            }
-            
-            _currentTile.SetActivated(true);
-            CharacterManager.Instance.ExperienceManagerProperty.SkillPoints--;
-            SetSkillsPoints();
-
-            //unlock line below
-            bool isNavigation = IsLeftSide(Length);
-            List<SkillTreeLine> skillTree = isNavigation ? _navigationLines : _combatLines;
-            int index = VerticalIndex + 1 < skillTree.Count ? VerticalIndex + 1 : -1;
-            if (index == -1)
-            {
-                return;
-            }
-            skillTree[index].Tiles.ForEach(x => x.SetLock(true));
         }
     }
 }

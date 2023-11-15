@@ -269,12 +269,6 @@ namespace Enemies.Seal
 
         protected override void Die()
         {
-            base.Die();
-            
-            HitParticles.Play();
-            _isMoving = false;
-            
-            SetPlayerExperience(CharacterManager.Instance.ExperienceManagerProperty.Data.ExperienceGainedAtEnemySeal);
         }
 
 #if UNITY_EDITOR
