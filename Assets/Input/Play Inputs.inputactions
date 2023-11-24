@@ -1,71 +1,71 @@
 {
-    "name": "Game Inputs",
+    "name": "Play Inputs",
     "maps": [
         {
-            "name": "Join",
-            "id": "02cd7d86-0d07-4cd5-b5ce-1c144e33cb4b",
+            "name": "Play",
+            "id": "db449a97-dba5-476d-87e4-c46ab27e0bee",
             "actions": [
                 {
-                    "name": "Ready",
+                    "name": "Paddle Left",
                     "type": "Button",
-                    "id": "93812262-ab6f-4776-81c2-424ccb43a643",
+                    "id": "bc261110-dafb-4f35-8627-7e46933b181d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.1)",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Start Game",
+                    "name": "Paddle Right",
                     "type": "Button",
-                    "id": "cc1c4daf-e778-48f0-9d5b-861cf2b6c7dc",
+                    "id": "b26f4c97-6bc6-486a-b672-59e6e827ba8c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.1)",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "009340b1-2f75-4e96-86f4-a3128b1acacc",
-                    "path": "<Gamepad>/buttonSouth",
+                    "id": "a203cc34-a113-44dd-b9fb-2ea55690b36c",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Ready",
+                    "action": "Paddle Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "8b069ad8-2cb8-4632-9b75-154e1d040d67",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
+                    "id": "5870952f-ec17-418d-8998-cb26bea6f8c0",
+                    "path": "<Keyboard>/q",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Ready",
+                    "action": "Paddle Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "3ebcbd25-13c2-438e-8b13-b3eb45e5a2df",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
+                    "id": "99ce0e55-f86c-4627-b8ae-7087b7d85389",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Start Game",
+                    "action": "Paddle Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "bf7b8f60-a6a7-45af-83dd-e6af24181648",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
+                    "id": "8da1ef60-ab51-4a73-81e5-9d5333711932",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Start Game",
+                    "action": "Paddle Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

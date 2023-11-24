@@ -397,7 +397,7 @@ MonoBehaviour:
     m_ActionName: Join Input/Start Game[/XInputControllerWindows/start,/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Join Input
+  m_DefaultActionMap: Join
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &4512152483633222236
