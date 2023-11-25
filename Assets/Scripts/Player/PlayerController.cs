@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour {
     private void UpdateRotation() {
         Quaternion targetRotation = Quaternion.AngleAxis(_targetAngle, Vector3.up);
         
-        KayakRigidbody.gameObject.transform.rotation = Quaternion.Slerp(
+        KayakRigidbody.gameObject.transform.rotation = Quaternion.Lerp(
                 KayakRigidbody.gameObject.transform.rotation,
                 targetRotation,
                 PaddleRotationForce
