@@ -152,9 +152,6 @@ namespace UI.WeaponWheel
 
             _weaponUI.SetActive(_isMenuOpen);
 
-
-            CharacterManager.Instance.ExperienceManagerProperty.ExperienceUIManagerProperty.SetActive(_isMenuOpen);
-
             if (_isMenuOpen)
             {
                 VignetteZoom();

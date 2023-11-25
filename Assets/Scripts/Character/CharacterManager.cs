@@ -8,7 +8,6 @@ using Fight;
 using GPEs.Checkpoint;
 using Kayak;
 using SceneTransition;
-using Sedna;
 using Tools.SingletonClassBase;
 using UI;
 using UI.Menu;
@@ -41,18 +40,13 @@ namespace Character
         [field: SerializeField, Header("Properties")] public CameraManager CameraManagerProperty { get; private set; }
         [field: SerializeField] public KayakController KayakControllerProperty { get; private set; }
         [field: SerializeField] public InputManagement InputManagementProperty { get; private set; }
-        [field: SerializeField] public SednaManager SednaManagerProperty { get; private set; }
         [field: SerializeField] public Animator PaddleAnimatorProperty { get; private set; }
         [field: SerializeField] public Animator CharacterAnimatorProperty { get; private set; }
         [field: SerializeField] public TransitionManager TransitionManagerProperty { get; private set; }
-        [field: SerializeField] public WeaponUIManager WeaponUIManagerProperty { get; private set; }
-        [field: SerializeField] public UIEnemyManager EnemyUIManager { get; private set; }
+        
         [field: SerializeField] public UIMenuManager UIMenuManagerRef { get; private set; }
-        [field: SerializeField] public NotificationsController NotificationsUIController { get; private set; }
-        [field: SerializeField] public BalanceGaugeManager BalanceGaugeManagerRef { get; private set; }
-        [field: SerializeField] public CheckpointManager CheckpointManagerProperty { get; private set; }
+        
         [field: SerializeField] public MonoBehaviour CharacterMonoBehaviour { get; private set; }
-        [field: SerializeField] public ExperienceManager ExperienceManagerProperty { get; private set; }
         [field: SerializeField] public Transform WeaponSpawnPosition { get; private set; }
         [field: SerializeField] public IKControl IKPlayerControl { get; private set; }
         [field: SerializeField] public PlayerParameters Parameters { get; set; }
@@ -120,10 +114,6 @@ namespace Character
 
             CurrentStateBaseProperty.EnterState(this);
 
-            BalanceGaugeManagerRef.SetBalanceGaugeActive(false);
-            ExperienceManagerProperty.ExperienceUIManagerProperty.SetActive(false);
-            BalanceGaugeManagerRef.ShowTrigger(false, false);
-
             //rotate kayak
             Transform kayakTransform = KayakControllerProperty.transform;
             kayakTransform.eulerAngles = new Vector3(0, BaseOrientation, 0);
@@ -171,29 +161,6 @@ namespace Character
         /// </summary>
         private void BalanceManagement()
         {
-            if (CurrentStateBaseProperty.IsDead)
-            {
-                return;
-            }
-
-            InvincibilityTime -= Time.deltaTime;
-            
-            if (LerpBalanceTo0)
-            {
-                Balance = Mathf.Lerp(Balance, 0, Data.BalanceLerpTo0Value);
-            }
-
-            if (Balance >= 0)
-            {
-                float function = Mathf.Pow(Balance, 2) - (((float)NumberButtonIsPressed / (float)Data.NumberPressButton) * 10) * (Mathf.Pow(Balance, 2) / 10);
-                BalanceGaugeManagerRef.SetBalanceCursor(function);
-            }
-            else if (Balance < 0)
-            {
-                //Change of sign
-                float function = -Mathf.Pow(Balance, 2) + (((float)NumberButtonIsPressed / (float)Data.NumberPressButton) * 10) * (Mathf.Pow(Balance, 2) / 10);
-                BalanceGaugeManagerRef.SetBalanceCursor(function);
-            }
         }
 
         /// <summary>
@@ -222,12 +189,6 @@ namespace Character
 
         private void ManageWeaponCooldown()
         {
-            if (ProjectileIsInAir == false && WeaponCooldown > 0)
-            {
-                WeaponCooldown -= Time.deltaTime;
-                float value = WeaponCooldown / WeaponCooldownBase;
-                WeaponUIManagerProperty.SetCooldownUI(value);
-            }
         }
 
         private void ManageInvincibilityBalance()

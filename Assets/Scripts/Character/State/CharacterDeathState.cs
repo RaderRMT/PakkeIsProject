@@ -28,9 +28,6 @@ namespace Character.State
         {
             IsDead = true;
             CharacterManagerRef.ScriptDebug.ResetTimerDebug();
-
-            CharacterManagerRef.BalanceGaugeManagerRef.SetBalanceGaugeColor();
-            CharacterManagerRef.BalanceGaugeManagerRef.SetBalanceGaugeScale();
         }
         public override void UpdateState(CharacterManager character)
         {
@@ -50,10 +47,6 @@ namespace Character.State
             //Switch camera
             if (Mathf.Abs(CharacterManagerRef.Balance) >= 60 && _cameraSwitchState == false || character.RespawnLastCheckpoint == true && _cameraSwitchState == false)
             {
-                _cameraSwitchState = true;
-                CharacterManagerRef.BalanceGaugeManagerRef.SetBalanceGaugeDisable();
-                CameraDeathState cameraDeathState = new CameraDeathState();
-                CameraManagerRef.SwitchState(cameraDeathState);
             }
             MakeBoatRotationWithBalance(_kayakController.transform, 1);
 
@@ -72,8 +65,6 @@ namespace Character.State
 
             if (_timerToRespawnCheckpoint >= 1.5f)
             {
-                Transform checkpoint = CharacterManager.Instance.CheckpointManagerProperty.GetRespawnPoint();
-                RespawnCheckpoint(checkpoint);
             }
 
             if (_timerFadeOutStart > 1.5f && _respawned)

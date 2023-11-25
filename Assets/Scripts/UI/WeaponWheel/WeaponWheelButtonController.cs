@@ -83,7 +83,6 @@ namespace UI.WeaponWheel
             string weaponName = Type == WeaponType.Harpoon ?
                 CharacterManager.Instance.Parameters.Language ? "Harpoon" : "Harpon"
                 : CharacterManager.Instance.Parameters.Language ? "Net" : "Filet";
-            CharacterManager.Instance.WeaponUIManagerProperty.LaunchNotification(weaponName, _weaponIcon);
         }
 
         public void Hover()

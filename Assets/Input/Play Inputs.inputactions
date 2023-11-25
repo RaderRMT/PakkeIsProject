@@ -1,0 +1,76 @@
+{
+    "name": "Play Inputs",
+    "maps": [
+        {
+            "name": "Play",
+            "id": "db449a97-dba5-476d-87e4-c46ab27e0bee",
+            "actions": [
+                {
+                    "name": "Paddle Left",
+                    "type": "Button",
+                    "id": "bc261110-dafb-4f35-8627-7e46933b181d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Paddle Right",
+                    "type": "Button",
+                    "id": "b26f4c97-6bc6-486a-b672-59e6e827ba8c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.1)",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a203cc34-a113-44dd-b9fb-2ea55690b36c",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Paddle Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5870952f-ec17-418d-8998-cb26bea6f8c0",
+                    "path": "<Keyboard>/q",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Paddle Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99ce0e55-f86c-4627-b8ae-7087b7d85389",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Paddle Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8da1ef60-ab51-4a73-81e5-9d5333711932",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Paddle Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

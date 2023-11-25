@@ -47,31 +47,6 @@ namespace Character
 
         private void LevelUp()
         {
-            _currentExperience -= _currentLevelData.ExperienceNeededToComplete;
-
-            _currentLevel++;
-            SkillPoints++;
-            _currentLevelData = Data.Levels[_currentLevel];
-
-            //events
-            if (_currentLevel < EventAtEachLevel.Count)
-            {
-                EventAtEachLevel[_currentLevel].Invoke();
-            }
-            
-            //weapons
-            for (int i = 0; i < Data.WeaponLevels.Count; i++)
-            {
-                if (Data.WeaponLevels[i].Level > _currentLevel)
-                {
-                    continue;
-                }
-
-                WheelButton button = CharacterManager.Instance.WeaponUIManagerProperty.Buttons.Find(x => x.ButtonController.Type == Data.WeaponLevels[i].Type);
-                button.ButtonController.SetCanBeUnlocked(true);
-            }
-            
-            CharacterManager.Instance.NotificationsUIController.LaunchSkillPointNotification();
         }
     }
 }
