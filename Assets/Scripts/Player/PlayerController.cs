@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour {
     
     public MonoBehaviour MonoBehaviourRef;
 
+    [Header("Player")]
+    public int Health;
+    public float NoHealthStunDuration;
+
     [Header("Kayak")]
     public Rigidbody KayakRigidbody;
     public float TimeBetweenSamplePoints;
@@ -54,7 +58,15 @@ public class PlayerController : MonoBehaviour {
 
     private float _targetAngle;
 
+    // velocity slowdown stuff
+    private float _previousMaximumVelocity;
+    private float _velocityTimer;
+
+    // keep track of the max health for the stun when no health
+    private int _maxHealth;
+
     private void Start() {
+        _maxHealth = Health;
         Waves.PlayerTransform = transform;
         
         foreach (Floater floater in Floaters) {
@@ -63,6 +75,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
+        UpdateVelocityOverrideTimer();
+        CheckHealth();
+        
         ClampVelocity();
         UpdatePaddleCooldowns();
         HandlePaddle();
@@ -70,7 +85,56 @@ public class PlayerController : MonoBehaviour {
         UpdateRotation();
     }
 
+    private void CheckHealth() {
+        if (Health != 0) {
+            return;
+        }
+
+        if (_velocityTimer > 0) {
+            return;
+        }
+
+        if (MaximumVelocity != 0) {
+            Slowdown(0, NoHealthStunDuration);
+        } else {
+            Health = _maxHealth;
+        }
+    }
+
+    private void UpdateVelocityOverrideTimer() {
+        if (_velocityTimer <= 0) {
+            return;
+        }
+
+        _velocityTimer -= Time.deltaTime;
+        if (_velocityTimer > 0) {
+            return;
+        }
+
+        // restore max velocity if the timer expired
+        MaximumVelocity = _previousMaximumVelocity;
+    }
+
+    public void Slowdown(float maximumVelocity, float duration) {
+        float oldVelocity;
+
+        if (_velocityTimer > 0) {
+            if (maximumVelocity > MaximumVelocity) {
+                return;
+            }
+
+            oldVelocity = _previousMaximumVelocity;
+        } else {
+            oldVelocity = MaximumVelocity;
+        }
+
+        MaximumVelocity = maximumVelocity;
+        _previousMaximumVelocity = oldVelocity;
+        _velocityTimer = duration;
+    }
+
     private void UpdateRotation() {
+        // todo: use the same code as the camera target stuff
         Quaternion targetRotation = Quaternion.AngleAxis(_targetAngle, Vector3.up);
         
         KayakRigidbody.gameObject.transform.rotation = Quaternion.Lerp(
