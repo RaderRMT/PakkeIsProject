@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour {
 
     private void Start() {
         _maxHealth = Health;
-        Waves.PlayerTransform = transform;
         
         foreach (Floater floater in Floaters) {
             floater.Waves = Waves;

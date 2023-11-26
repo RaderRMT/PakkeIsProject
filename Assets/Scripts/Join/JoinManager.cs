@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -33,7 +34,7 @@ public class JoinManager : MonoBehaviour {
         SceneManager.LoadScene(GameSceneName);
     }
 
-    public void OnPlayerJoined(PlayerInput input) {
+    public void PlayerJoinedEvent(PlayerInput input) {
         if (_playerInformations.Any(player => player.PlayerIndex == input.playerIndex)) {
             return;
         }
@@ -53,5 +54,9 @@ public class JoinManager : MonoBehaviour {
         _playerInformations.Remove(player);
         
         Destroy(player.Input.gameObject);
+    }
+
+    public List<PlayerInformation> GetPlayerInfos() {
+        return _playerInformations;
     }
 }

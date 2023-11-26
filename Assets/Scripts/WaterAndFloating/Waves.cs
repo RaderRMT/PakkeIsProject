@@ -18,7 +18,7 @@ namespace WaterAndFloating
         [SerializeField] private Transform _waterPlacing;
 
         [Header("Render"), SerializeField] private int _renderDistance = 20;
-        public Transform PlayerTransform;
+        public List<Transform> PlayerTransforms;
         
         [SerializeField] private Octave _octave;
 
@@ -60,60 +60,22 @@ namespace WaterAndFloating
             }
             CircularWavesDurationList = new List<float>();
             LinearWavesDurationList = new List<float>();
-            
-            WaveGeneration();
+
+            foreach (Transform playerTransform in PlayerTransforms) {
+                WaveGeneration(playerTransform);
+            }
             
             _mesh.RecalculateNormals();
         }
 
         private void Update()
         {
-            WaveGeneration();
+            foreach (Transform playerTransform in PlayerTransforms) {
+                WaveGeneration(playerTransform);
+            }
+            
             ManageCircularWavesTimer();
             ManageLinearWavesTimer();
-        }
-
-        public float GetHeight(Vector3 position)
-        {
-            Transform waveTransform = transform;
-            Vector3 lossyScale = waveTransform.lossyScale;
-            
-            //scale factor and position in local space
-            Vector3 scale = new Vector3(1 / lossyScale.x, 0, 1 / lossyScale.z);
-            Vector3 localPos = Vector3.Scale((position - waveTransform.position), scale);
-
-            //get edge points
-            Vector3 p1 = new Vector3(Mathf.Floor(localPos.x), 0, Mathf.Floor(localPos.z));
-            Vector3 p2 = new Vector3(Mathf.Floor(localPos.x), 0, Mathf.Ceil(localPos.z));
-            Vector3 p3 = new Vector3(Mathf.Ceil(localPos.x), 0, Mathf.Floor(localPos.z));
-            Vector3 p4 = new Vector3(Mathf.Ceil(localPos.x), 0, Mathf.Ceil(localPos.z));
-
-            //clamp if the position is outside the plane
-            p1.x = Mathf.Clamp(p1.x, 0, _dimension);
-            p1.z = Mathf.Clamp(p1.z, 0, _dimension);
-            p2.x = Mathf.Clamp(p2.x, 0, _dimension);
-            p2.z = Mathf.Clamp(p2.z, 0, _dimension);
-            p3.x = Mathf.Clamp(p3.x, 0, _dimension);
-            p3.z = Mathf.Clamp(p3.z, 0, _dimension);
-            p4.x = Mathf.Clamp(p4.x, 0, _dimension);
-            p4.z = Mathf.Clamp(p4.z, 0, _dimension);
-
-            //get the max distance to one of the edges and take that to compute max - dist
-            float max = Mathf.Max(Vector3.Distance(p1, localPos), Vector3.Distance(p2, localPos),
-                Vector3.Distance(p3, localPos), Vector3.Distance(p4, localPos) + Mathf.Epsilon);
-            float dist = (max - Vector3.Distance(p1, localPos))
-                         + (max - Vector3.Distance(p2, localPos))
-                         + (max - Vector3.Distance(p3, localPos))
-                         + (max - Vector3.Distance(p4, localPos) + Mathf.Epsilon);
-            
-            //weighted sum
-            float height = _vertices[Index(p1.x, p1.z)].y * (max - Vector3.Distance(p1, localPos))
-                           + _vertices[Index(p2.x, p2.z)].y * (max - Vector3.Distance(p2, localPos))
-                           + _vertices[Index(p3.x, p3.z)].y * (max - Vector3.Distance(p3, localPos))
-                           + _vertices[Index(p4.x, p4.z)].y * (max - Vector3.Distance(p4, localPos));
-
-            //scale
-            return height * lossyScale.y / dist;
         }
 
         #region Mesh Generation
@@ -191,7 +153,7 @@ namespace WaterAndFloating
 
         #endregion
 
-        private void WaveGeneration()
+        private void WaveGeneration(Transform playerTransform)
         {
             //octave
             Octave octave = _octave;
@@ -203,7 +165,7 @@ namespace WaterAndFloating
             float octaveHeight = octave.Height;
             
             //render values setup
-            Vector3 position = PlayerTransform.position;
+            Vector3 position = playerTransform.position;
             Vector3 renderCenter = _vertices[FindIndexOfVerticeAt(new Vector2(position.x,position.z), true)];
             int xStart = (int)renderCenter.x - _renderDistance;
             int xEnd = (int)renderCenter.x + _renderDistance;
