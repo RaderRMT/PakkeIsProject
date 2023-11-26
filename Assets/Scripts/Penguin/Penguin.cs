@@ -1,3 +1,6 @@
+using GPEs.WaterFlowGPE;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using WaterFlowGPE.Bezier;
 
@@ -139,30 +142,30 @@ public class Penguin : MonoBehaviour
         Transform t = transform;
         Vector3 splinePos = _splinePath.GetPoint(_currentSplinePosition);
         Vector3 position = Vector3.Lerp(new Vector3(t.position.x, 0, t.position.z), new Vector3(splinePos.x, 0, splinePos.z), _speedLerpToMovingValue);
-        // Vector3 origin = transform.position;
-        // origin.y = transform.position.y + 5f;
-        // Vector3 direction = -Vector3.up;
-        // float distance = 20f;
-        // int hitCount = Physics.RaycastNonAlloc(origin, direction, _hitBuffer, distance);
-        // if (hitCount > 0)
-        // {
-        //     int temp = 0;
-        //     while (_hitBuffer[temp].collider.GetComponent<WaterFlowBlock>() == true)
-        //     {
-        //         if (temp >= _hitBuffer.Length)
-        //             return;
-        //         temp++;
-        //     }
-        //     for (int i = 0; i < hitCount; i++)
-        //     {
-        //         if (_hitBuffer[temp].distance > _hitBuffer[i].distance && _hitBuffer[i].collider.GetComponent<WaterFlowBlock>() == false)
-        //         {
-        //             temp = i;
-        //         }
-        //     }
-        //     position.y = Mathf.Lerp(t.position.y, _hitBuffer[temp].point.y, 0.2f);
-        //
-        // }
+        Vector3 origin = transform.position;
+        origin.y = transform.position.y + 5f;
+        Vector3 direction = -Vector3.up;
+        float distance = 20f;
+        int hitCount = Physics.RaycastNonAlloc(origin, direction, _hitBuffer, distance);
+        if (hitCount > 0)
+        {
+            int temp = 0;
+            while (_hitBuffer[temp].collider.GetComponent<WaterFlowBlock>() == true)
+            {
+                if (temp >= _hitBuffer.Length)
+                    return;
+                temp++;
+            }
+            for (int i = 0; i < hitCount; i++)
+            {
+                if (_hitBuffer[temp].distance > _hitBuffer[i].distance && _hitBuffer[i].collider.GetComponent<WaterFlowBlock>() == false)
+                {
+                    temp = i;
+                }
+            }
+            position.y = Mathf.Lerp(t.position.y, _hitBuffer[temp].point.y, 0.2f);
+
+        }
         t.position = position;
         //rotation
         Vector3 pointB = _splinePath.GetPoint(Mathf.Clamp01(_currentSplinePosition + 0.01f));

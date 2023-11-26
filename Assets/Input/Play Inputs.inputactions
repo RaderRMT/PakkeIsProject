@@ -22,15 +22,6 @@
                     "processors": "",
                     "interactions": "Hold(duration=0.1)",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Use Item",
-                    "type": "Button",
-                    "id": "9645c8b2-069f-439d-b954-32321f1c30d9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -75,28 +66,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Paddle Right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6a44b7c3-4aca-4a64-af95-e57837d3752a",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Use Item",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b0d65151-c5a1-46bf-9afa-c94931d0642f",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Use Item",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

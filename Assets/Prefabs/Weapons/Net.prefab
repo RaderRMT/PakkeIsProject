@@ -34,7 +34,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &5967924888447130342
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -75,7 +75,6 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.5
-  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -130,21 +129,17 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 0
 --- !u!1 &5967924888523931423
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +174,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &5967924888523931393
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -220,7 +215,6 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.5
-  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -275,21 +269,17 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 0
 --- !u!1 &5967924889100917933
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +314,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &5967924889100917935
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -365,7 +355,6 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.5
-  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -420,21 +409,17 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 0
 --- !u!1 &5967924889601430570
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +431,9 @@ GameObject:
   - component: {fileID: 5967924889601430572}
   - component: {fileID: 5967924889601430571}
   - component: {fileID: 5967924889601430573}
+  - component: {fileID: 5818197527617267939}
+  - component: {fileID: 2498438549114173914}
+  - component: {fileID: 220479010615329660}
   m_Layer: 0
   m_Name: Net
   m_TagString: Untagged
@@ -482,17 +470,9 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5967924889601430570}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Size: {x: 2.7777574, y: 0.5, z: 2.5420172}
   m_Center: {x: -0.029283166, y: 0.26, z: 0.0361861}
 --- !u!54 &5967924889601430573
@@ -502,26 +482,99 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5967924889601430570}
-  serializedVersion: 4
+  serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5818197527617267939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5967924889601430570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1857f47136aa49e899cc28afef1f73fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Owner>k__BackingField: {fileID: 0}
+  <Data>k__BackingField: {fileID: 11400000, guid: 284cf2cbea7e826499a1594641f508f7,
+    type: 2}
+  <WeaponMeshControllerRef>k__BackingField: {fileID: 6120854944616396573}
+  _sednaWeaponToPlayerPrefab: {fileID: 1804849885034642166, guid: 50640a99ba2a579448150b15cf51f016,
+    type: 3}
+  OnProjectileDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2498438549114173914}
+        m_TargetAssemblyTypeName: Sound.PlaySound, Assembly-CSharp
+        m_MethodName: PlaySoundTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _dieParticles: {fileID: 8332679083994182374}
+  _rotationSpeed: 10
+--- !u!114 &2498438549114173914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5967924889601430570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb12ca207c8fb8c41967292a1edca8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+    Guid:
+      Data1: 33749068
+      Data2: 1319943297
+      Data3: -1249522514
+      Data4: 1785326610
+    Path: event:/SFX/Weapons/NetHit
+--- !u!114 &220479010615329660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5967924889601430570}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 33749068
+      Data2: 1319943297
+      Data3: -1249522514
+      Data4: 1785326610
+    Path: event:/SFX/Weapons/NetHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5967924890082433169
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +609,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &5967924890082433171
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -597,7 +650,6 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.5
-  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -652,27 +704,22 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 0
 --- !u!1001 &1097880397900422767
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 5967924889601430572}
     m_Modifications:
     - target: {fileID: 5090435042023652168, guid: d6a2c09e589af4d4bbcc6b120dd5765c,
@@ -751,13 +798,6 @@ PrefabInstance:
       value: filet_sedna
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5615719491527074290, guid: d6a2c09e589af4d4bbcc6b120dd5765c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6120854944616396573}
   m_SourcePrefab: {fileID: 100100000, guid: d6a2c09e589af4d4bbcc6b120dd5765c, type: 3}
 --- !u!1 &4815332581976145821 stripped
 GameObject:
@@ -781,7 +821,6 @@ MonoBehaviour:
   _invisibleValue: 0.5
   _visibleValue: 2.5
   _timeToShow: 1.5
-  _cutoffHeightLaunch: 1000
   _gameObjectsToActivateAfterDissolve: []
   _percentageToShowObjects: 0.7
 --- !u!4 &5303181890100733223 stripped
@@ -795,7 +834,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 5967924889601430572}
     m_Modifications:
     - target: {fileID: 918620791469253800, guid: 0f606292bca4c8146aa19823188dc0f2,
@@ -859,13 +897,16 @@ PrefabInstance:
       value: NetExplosion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f606292bca4c8146aa19823188dc0f2, type: 3}
 --- !u!4 &5176353362023311309 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 918620791469253800, guid: 0f606292bca4c8146aa19823188dc0f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5434016585219851109}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8332679083994182374 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4092116408653099395, guid: 0f606292bca4c8146aa19823188dc0f2,
     type: 3}
   m_PrefabInstance: {fileID: 5434016585219851109}
   m_PrefabAsset: {fileID: 0}

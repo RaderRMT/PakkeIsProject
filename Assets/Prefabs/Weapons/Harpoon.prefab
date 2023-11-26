@@ -34,7 +34,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &1898537404567381883
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -75,7 +75,6 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.5
-  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -130,21 +129,17 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 0
 --- !u!1 &1450443827109434565
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +174,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &595793331869430033
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -220,7 +215,6 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.5
-  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -275,21 +269,17 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 0
 --- !u!1 &4447602596650765176
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +291,9 @@ GameObject:
   - component: {fileID: 4447602596650765183}
   - component: {fileID: 4447602596650765181}
   - component: {fileID: 4447602596650765182}
+  - component: {fileID: 4447602596650765180}
+  - component: {fileID: 1326249160998105256}
+  - component: {fileID: 9071339497725653765}
   m_Layer: 0
   m_Name: Harpoon
   m_TagString: Untagged
@@ -335,21 +328,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4447602596650765176}
-  serializedVersion: 4
+  serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -363,19 +345,94 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4447602596650765176}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Size: {x: 1.21, y: 0.55, z: 1.32}
   m_Center: {x: 0, y: 0.33, z: 0.94}
+--- !u!114 &4447602596650765180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447602596650765176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d4f32e57179274a8f8f975efdb2c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Owner>k__BackingField: {fileID: 0}
+  <Data>k__BackingField: {fileID: 11400000, guid: 2f66cc1fc962647478a68e686d304648,
+    type: 2}
+  <WeaponMeshControllerRef>k__BackingField: {fileID: 5567763478592024340}
+  _sednaWeaponToPlayerPrefab: {fileID: 1804849885034642166, guid: 50640a99ba2a579448150b15cf51f016,
+    type: 3}
+  OnProjectileDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1326249160998105256}
+        m_TargetAssemblyTypeName: Sound.PlaySound, Assembly-CSharp
+        m_MethodName: PlaySoundTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _dieParticles: {fileID: 8734386948639349553}
+--- !u!114 &1326249160998105256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447602596650765176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb12ca207c8fb8c41967292a1edca8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+    Guid:
+      Data1: -99046192
+      Data2: 1215293262
+      Data3: 1238210730
+      Data4: -1651047736
+    Path: event:/SFX/Weapons/HarpoonHit
+--- !u!114 &9071339497725653765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447602596650765176}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -99046192
+      Data2: 1215293262
+      Data3: 1238210730
+      Data4: -1651047736
+    Path: event:/SFX/Weapons/HarpoonHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4837605132821695927
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +467,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &6525459459233166365
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -451,7 +508,6 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.5
-  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -506,27 +562,22 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 0
 --- !u!1001 &1693175064017002430
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 4447602596650765183}
     m_Modifications:
     - target: {fileID: 4948181831595569057, guid: 2b142a2adf088b345aae289a597a6281,
@@ -605,13 +656,6 @@ PrefabInstance:
       value: sedna_weapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5755786709773841691, guid: 2b142a2adf088b345aae289a597a6281,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5567763478592024340}
   m_SourcePrefab: {fileID: 100100000, guid: 2b142a2adf088b345aae289a597a6281, type: 3}
 --- !u!4 &6040493232193007647 stripped
 Transform:
@@ -641,7 +685,6 @@ MonoBehaviour:
   _invisibleValue: 0.5
   _visibleValue: 2.5
   _timeToShow: 1.5
-  _cutoffHeightLaunch: 1000
   _gameObjectsToActivateAfterDissolve: []
   _percentageToShowObjects: 0.7
 --- !u!1001 &8338071646987913723
@@ -649,7 +692,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 4447602596650765183}
     m_Modifications:
     - target: {fileID: 4536681545213986785, guid: d042e396092f502488b09c623a3a6732,
@@ -713,13 +755,16 @@ PrefabInstance:
       value: HarpoonExplosion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d042e396092f502488b09c623a3a6732, type: 3}
 --- !u!4 &5567364106512780826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4536681545213986785, guid: d042e396092f502488b09c623a3a6732,
+    type: 3}
+  m_PrefabInstance: {fileID: 8338071646987913723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8734386948639349553 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 756606228994216650, guid: d042e396092f502488b09c623a3a6732,
     type: 3}
   m_PrefabInstance: {fileID: 8338071646987913723}
   m_PrefabAsset: {fileID: 0}
