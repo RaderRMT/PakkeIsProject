@@ -2,7 +2,8 @@
 using UnityEngine;
 
 public class AttackController : MonoBehaviour {
-    
+
+    public Transform KayakTransform;
     private AttackItem _heldAttackItem;
 
     public void SetAttackItem(AttackItem attackItem) {
@@ -17,8 +18,18 @@ public class AttackController : MonoBehaviour {
         if (_heldAttackItem == null) {
             return;
         }
+
+        PlayerController controller = FindClosestPlayer();
+        if (controller == null) {
+            return;
+        }
+
+        GameObject attackItem = Instantiate(_heldAttackItem.gameObject);
+        attackItem.transform.position = KayakTransform.position;
+        attackItem.transform.LookAt(controller.gameObject.transform.position);
+
+        attackItem.GetComponent<AttackItem>().Init(gameObject);
         
-        _heldAttackItem.Use(FindClosestPlayer());
         _heldAttackItem = null;
     }
 

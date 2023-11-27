@@ -3,13 +3,13 @@
 public class PlayerInformation {
 
     public PlayerInput Input { get; set; }
+    public JoinMenuController JoinMenuController { get; set; }
     public int PlayerIndex { get; set; }
-    public int DeviceId { get; set; }
     public bool IsReady { get; set; }
     
-    public PlayerInformation(PlayerInput input) {
+    public PlayerInformation(PlayerInput input, JoinMenuController joinMenuController) {
         PlayerIndex = input.playerIndex;
-        DeviceId = input.devices[0].deviceId;
+        JoinMenuController = joinMenuController;
         Input = input;
     }
 }

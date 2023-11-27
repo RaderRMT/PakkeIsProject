@@ -2,12 +2,34 @@
 using UnityEngine;
 
 [Serializable]
-public class AttackItem : MonoBehaviour {
+public abstract class AttackItem : MonoBehaviour {
 
     public string Name;
-    public GameObject Prefab;
+    public float Speed;
 
-    public void Use(PlayerController playerController) {
+    private GameObject _thrower;
+
+    private void Update() {
+        transform.position += transform.forward * (Speed * Time.deltaTime);
+    }
+
+    public void Init(GameObject thrower) {
+        _thrower = thrower;
+    }
+
+    protected abstract void Use(PlayerController playerController);
+
+    private void OnTriggerEnter(Collider other) {
+        PlayerController controller = other.gameObject.GetComponentInParent<PlayerController>();
+        if (controller == null) {
+            return;
+        }
         
+        if (controller.PlayerName == _thrower.name) {
+            return;
+        }
+
+        Use(controller);
+        Destroy(gameObject);
     }
 }

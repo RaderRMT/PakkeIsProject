@@ -325,6 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerText: {fileID: 6333540885358336301}
   ReadyText: {fileID: 470324435534385356}
+  PlayerInput: {fileID: 6776227207532919240}
 --- !u!114 &6776227207532919240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,9 +338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 8ae3ea52c8327d04f8aecb8da0a56ab6,
+  m_Actions: {fileID: -944628639613478452, guid: e05758d2a64f7f3428b6bf076c8f2a6a,
     type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -364,40 +365,40 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5649877525433411561}
-        m_TargetAssemblyTypeName: JoinMenuController, Assembly-CSharp
-        m_MethodName: ToggleReady
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 93812262-ab6f-4776-81c2-424ccb43a643
-    m_ActionName: Join Input/Ready[/XInputControllerWindows/buttonSouth,/Keyboard/r]
+      m_Calls: []
+    m_ActionId: ea78fbc7-992f-4288-873a-9e1ed7bd8b70
+    m_ActionName: All/Paddle[/XInputControllerWindows/rightTrigger,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f53ff88b-b05f-48ec-b754-9356e91cbc11
+    m_ActionName: All/Turn Left[/XInputControllerWindows/leftStick/left,/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 32b81c33-2ce3-4aca-97b1-81b36e618f4f
+    m_ActionName: All/Turn Right[/XInputControllerWindows/leftStick/right,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5649877525433411561}
-        m_TargetAssemblyTypeName: JoinMenuController, Assembly-CSharp
-        m_MethodName: StartGame
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: cc1c4daf-e778-48f0-9d5b-861cf2b6c7dc
-    m_ActionName: Join Input/Start Game[/XInputControllerWindows/start,/Keyboard/enter]
+    m_ActionId: 8796468b-36ed-4e8e-a567-efab0ef8b694
+    m_ActionName: All/Ready[/XInputControllerWindows/buttonSouth,/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0c6d6432-af9c-4317-8a65-3db6f4792e4f
+    m_ActionName: All/Start[/XInputControllerWindows/start,/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Join
+  m_DefaultActionMap: All
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &4512152483633222236

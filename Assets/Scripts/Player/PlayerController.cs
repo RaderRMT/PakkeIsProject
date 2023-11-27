@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using WaterAndFloating;
 
 public class PlayerController : MonoBehaviour {
@@ -15,6 +14,8 @@ public class PlayerController : MonoBehaviour {
     }
     
     public MonoBehaviour MonoBehaviourRef;
+    public Camera PlayerCamera;
+    public string PlayerName { get; set; }
 
     [Header("Player")]
     public int Health;
@@ -53,8 +54,7 @@ public class PlayerController : MonoBehaviour {
     private Direction _particleSide;
     
     // held paddle buttons
-    private bool _leftPaddleHeld;
-    private bool _rightPaddleHeld;
+    private bool _isPaddling;
 
     private float _targetAngle;
 
@@ -64,6 +64,11 @@ public class PlayerController : MonoBehaviour {
 
     // keep track of the max health for the stun when no health
     private int _maxHealth;
+    
+    // rotation stuff
+    private Direction _rotationDirection;
+    private bool _isRotating;
+    private float _rotationForce;
 
     private void Start() {
         _maxHealth = Health;
@@ -80,6 +85,7 @@ public class PlayerController : MonoBehaviour {
         ClampVelocity();
         UpdatePaddleCooldowns();
         HandlePaddle();
+        HandleRotation();
         ManageParticlePaddle();
         UpdateRotation();
     }
@@ -143,53 +149,47 @@ public class PlayerController : MonoBehaviour {
         );
     }
 
-    public void PaddleLeft(InputAction.CallbackContext context) {
-        if (context.started) {
-            _leftPaddleHeld = true;
-        } else if (context.canceled) {
-            _leftPaddleHeld = false;
+    public void Turn(Direction direction, bool isPressed, float force) {
+        _rotationDirection = direction;
+        _isRotating = isPressed;
+        _rotationForce = force;
+    }
+
+    private void HandleRotation() {
+        if (!_isRotating) {
+            return;
+        }
+
+        if (_rotationDirection == Direction.LEFT) {
+            _targetAngle -= _rotationForce * AngleAddedPerPaddle * Time.deltaTime;
+        } else if (_rotationDirection == Direction.RIGHT) {
+            _targetAngle += _rotationForce * AngleAddedPerPaddle * Time.deltaTime;
         }
     }
 
-    public void PaddleRight(InputAction.CallbackContext context) {
-        if (context.started) {
-            _rightPaddleHeld = true;
-        } else if (context.canceled) {
-            _rightPaddleHeld = false;
-        }
+    public void PaddleForward(bool isPressed) {
+        _isPaddling = isPressed;
     }
 
     private void HandlePaddle() {
-        if (_leftPaddleHeld && _rightPaddleHeld) {
-            HandlePaddleForward();
-        } else if (_leftPaddleHeld) {
-            Paddle(Direction.LEFT);
-        } else if (_rightPaddleHeld) {
-            Paddle(Direction.RIGHT);
+        if (!_isPaddling) {
+            return;
         }
-    }
 
-    private void HandlePaddleForward() {
-        float targetAngle = _targetAngle;
-        
         if (_leftPaddleCooldown <= 0) {
             Paddle(Direction.LEFT);
         } else if (_rightPaddleCooldown <= 0) {
             Paddle(Direction.RIGHT);
         }
-
-        _targetAngle = targetAngle;
     }
 
     private void Paddle(Direction direction) {
         if (direction == Direction.LEFT && _leftPaddleCooldown <= 0) {
             _leftPaddleCooldown = PaddleCooldown;
             _rightPaddleCooldown = PaddleCooldown / 2;
-            _targetAngle += AngleAddedPerPaddle;
         } else if (direction == Direction.RIGHT && _rightPaddleCooldown <= 0) {
             _rightPaddleCooldown = PaddleCooldown;
             _leftPaddleCooldown = PaddleCooldown / 2;
-            _targetAngle -= AngleAddedPerPaddle;
         } else {
             return;
         }
