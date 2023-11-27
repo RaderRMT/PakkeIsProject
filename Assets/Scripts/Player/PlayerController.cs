@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using WaterAndFloating;
 
 public class PlayerController : MonoBehaviour {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     public MonoBehaviour MonoBehaviourRef;
     public Camera PlayerCamera;
     public string PlayerName { get; set; }
+    public RawImage PlayerIndexImage;
 
     [Header("Player")]
     public int Health;
@@ -263,5 +265,10 @@ public class PlayerController : MonoBehaviour {
 
             yield return new WaitForSeconds(TimeBetweenSamplePoints);
         }
+    }
+
+    public void InitPlayer(string playerName, Texture playerIndexTexture) {
+        PlayerName = playerName;
+        PlayerIndexImage.texture = playerIndexTexture;
     }
 }

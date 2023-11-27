@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public abstract class AttackItem : MonoBehaviour {
 
-    public string Name;
+    public Texture Sprite;
     public float Speed;
 
     private GameObject _thrower;

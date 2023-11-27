@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2063430833777656529
 MonoBehaviour:
@@ -102,5 +102,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff129b04ec141744a00462d6d70054e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JoinScreenCanvas: {fileID: 0}
   JoinScreenMenuList: {fileID: 0}
-  GameSceneName: Dev Scene
+  PlayerInputManager: {fileID: 2063430833777656529}
+  PlayerPrefab: {fileID: 1009475838731683879, guid: 9640547b606316a4a9dbb1d777171edd,
+    type: 3}
+  Waves: {fileID: 0}
+  PlayerSpawnPositions: []
+  PlayerIndexTextures:
+  - {fileID: 2800000, guid: 7f88bb232cc9bde469ee0f0db3c3f8b9, type: 3}
+  - {fileID: 2800000, guid: bb9c62f363889854f98cf3ef114ede4e, type: 3}
+  - {fileID: 2800000, guid: b6f1e75da2f7f3145b30e5330d8aecbf, type: 3}
+  - {fileID: 2800000, guid: e0e9d4021af3e1842811dd13584c4d9b, type: 3}

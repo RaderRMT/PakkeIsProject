@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fcaf17eece4301af6c4e0ca6caff04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Net
+  Sprite: {fileID: 2800000, guid: 77af569f5fc2dcd4d8ad8cfe21447f8f, type: 3}
   Speed: 5
   NewVelocity: 3
   Duration: 4
