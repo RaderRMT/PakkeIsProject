@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using WaterAndFloating;
 
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     public Camera PlayerCamera;
     public string PlayerName { get; set; }
     public RawImage PlayerIndexImage;
+    public List<SkinnedMeshRenderer> Meshes;
 
     [Header("Player")]
     public int Health;
@@ -267,8 +269,12 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void InitPlayer(string playerName, Texture playerIndexTexture) {
+    public void InitPlayer(string playerName, Texture playerIndexTexture, Material playerMaterial) {
         PlayerName = playerName;
         PlayerIndexImage.texture = playerIndexTexture;
+
+        foreach (SkinnedMeshRenderer mesh in Meshes) {
+            mesh.material = playerMaterial;
+        }
     }
 }

@@ -17,6 +17,7 @@ public class JoinManager : MonoBehaviour {
     public Transform[] PlayerSpawnPositions;
 
     public List<Texture> PlayerIndexTextures;
+    public List<Material> PlayerMaterials;
 
     private List<PlayerInformation> _playerInformations = new List<PlayerInformation>();
 
@@ -56,7 +57,7 @@ public class JoinManager : MonoBehaviour {
             controller.Waves = Waves;
 
             player.name = "Player " + (infos[i].PlayerIndex + 1);
-            controller.InitPlayer(player.name, PlayerIndexTextures[infos[i].PlayerIndex]);
+            controller.InitPlayer(player.name, PlayerIndexTextures[infos[i].PlayerIndex], PlayerMaterials[infos[i].PlayerIndex]);
 
             infos[i].JoinMenuController.PlayerController = controller;
             infos[i].JoinMenuController.IsPlaying = true;
