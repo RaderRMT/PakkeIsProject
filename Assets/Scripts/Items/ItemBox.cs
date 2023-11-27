@@ -6,8 +6,6 @@ public class ItemBox : MonoBehaviour {
 
     public AttackItem[] AttackItems;
 
-    private float _currentDisableTime;
-
     public AttackItem GetRandomItem() {
         return AttackItems[Random.Range(0, AttackItems.Length)];
     }
@@ -27,7 +25,7 @@ public class ItemBox : MonoBehaviour {
     }
 
     private void DisableBox() {
-        gameObject.SetActive(_currentDisableTime < 0);
+        gameObject.SetActive(false);
     }
 }
 
