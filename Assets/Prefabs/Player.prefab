@@ -3070,6 +3070,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: New Kayak
       objectReference: {fileID: 0}
+    - target: {fileID: 6823862478239345601, guid: 5c73073c45d62a54a853abc01ab6ca57,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4950148468892883501, guid: 5c73073c45d62a54a853abc01ab6ca57, type: 3}
     - {fileID: 2122146315348380069, guid: 5c73073c45d62a54a853abc01ab6ca57, type: 3}
