@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class JoinManager : MonoBehaviour {
     public GameObject PlayerPrefab;
     public Waves Waves;
     public Transform[] PlayerSpawnPositions;
+
+    public PositionHandler PositionHandler;
 
     public List<Texture> PlayerIndexTextures;
     public List<Material> PlayerMaterials;
@@ -63,6 +66,7 @@ public class JoinManager : MonoBehaviour {
             infos[i].JoinMenuController.IsPlaying = true;
             infos[i].JoinMenuController.PlayerInput.camera = controller.PlayerCamera;
             
+            PositionHandler.PlayerPositions.Add(controller);
             Waves.PlayerTransforms.Add(player.transform);
         }
     }

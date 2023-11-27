@@ -114,3 +114,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: bb9c62f363889854f98cf3ef114ede4e, type: 3}
   - {fileID: 2800000, guid: b6f1e75da2f7f3145b30e5330d8aecbf, type: 3}
   - {fileID: 2800000, guid: e0e9d4021af3e1842811dd13584c4d9b, type: 3}
+  PlayerMaterials:
+  - {fileID: 2100000, guid: f621866588a581d478d6fa18b5e94a58, type: 2}
+  - {fileID: 2100000, guid: 6f43a175d5202a4429009f7d884c5365, type: 2}
+  - {fileID: 2100000, guid: d5a98a2a02503a54888ffce9aa600bc9, type: 2}
+  - {fileID: 2100000, guid: 4c81fa6279b59474fb5da1fa3e2480cf, type: 2}

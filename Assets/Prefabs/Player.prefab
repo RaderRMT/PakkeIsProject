@@ -52,6 +52,7 @@ MonoBehaviour:
   MonoBehaviourRef: {fileID: 7045105159207104733}
   PlayerCamera: {fileID: 1521773109796289043}
   PlayerIndexImage: {fileID: 1755663067249913897}
+  PlayerPositionRawImage: {fileID: 6194828124502946052}
   Meshes:
   - {fileID: 471756798414008688}
   - {fileID: 5424060528765635611}
@@ -449,7 +450,7 @@ RectTransform:
   m_GameObject: {fileID: 3542562128917564976}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.88509, y: 0.88509, z: 0.88509}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5146541534301362205}
@@ -457,7 +458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.2, y: -0.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &363773749493198675
@@ -488,7 +489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b99c8bfbc70db6549ac08d7254e1768c, type: 3}
+  m_Texture: {fileID: 2800000, guid: d5ffe45a589400142b906dca776d5580, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

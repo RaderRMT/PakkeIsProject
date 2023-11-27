@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     public Camera PlayerCamera;
     public string PlayerName { get; set; }
     public RawImage PlayerIndexImage;
+    public RawImage PlayerPositionRawImage;
     public List<SkinnedMeshRenderer> Meshes;
 
     [Header("Player")]
