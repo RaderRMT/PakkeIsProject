@@ -18,6 +18,10 @@ public class ItemBox : MonoBehaviour {
             return;
         }
         
+        if (controller.HasItem()) {
+            return;
+        }
+
         controller.SetAttackItem(GetRandomItem());
         DisableBox();
     }

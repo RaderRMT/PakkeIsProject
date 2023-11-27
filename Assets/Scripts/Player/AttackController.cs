@@ -39,4 +39,8 @@ public class AttackController : MonoBehaviour {
                 .OrderBy(p => Vector3.Distance(p.transform.position, transform.position))
                 .FirstOrDefault();
     }
+
+    public bool HasItem() {
+        return _heldAttackItem != null;
+    }
 }
