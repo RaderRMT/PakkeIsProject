@@ -75,7 +75,7 @@ MonoBehaviour:
   - {fileID: 8716963417482266477}
   - {fileID: 4628427626844423390}
   - {fileID: 5057828565214716840}
-  Health: 3
+  Health: 2
   NoHealthStunDuration: 2
   KayakRigidbody: {fileID: 1319464952143420233}
   TimeBetweenSamplePoints: 0.1
@@ -87,8 +87,8 @@ MonoBehaviour:
   - {fileID: 1319464952425701532}
   - {fileID: 1319464952845808367}
   TimeToPlayParticlesAfterPaddle: 1.5
-  PaddleCooldown: 1.5
-  PaddleForce: 5
+  PaddleCooldown: 1
+  PaddleForce: 8
   AngleAddedPerPaddle: 30
   PaddleRotationForce: 0.5
   PaddleForceCurveSamplePoints: 10
