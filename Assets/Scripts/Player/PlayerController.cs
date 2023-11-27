@@ -163,6 +163,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void HandleRotation() {
+        if (!_canMove) {
+            return;
+        }
+        
         if (!_isRotating) {
             return;
         }

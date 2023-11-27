@@ -12,6 +12,8 @@ public class JoinManager : MonoBehaviour {
     public Canvas JoinScreenCanvas;
     public GameObject JoinScreenMenuList;
     public PlayerInputManager PlayerInputManager;
+
+    public CountdownManager CountdownManager;
     
     public GameObject PlayerPrefab;
     public Waves Waves;
@@ -47,6 +49,12 @@ public class JoinManager : MonoBehaviour {
         JoinScreenCanvas.enabled = false;
         
         PlayerInputManager.splitScreen = true;
+        
+        CountdownManager.ShowCountdown(() => {
+            foreach (PlayerController controller in PositionHandler.PlayerPositions) {
+                controller.EnableMovements();
+            }
+        });
     }
 
     private void InitializePlayers() {
@@ -68,8 +76,6 @@ public class JoinManager : MonoBehaviour {
             
             PositionHandler.PlayerPositions.Add(controller);
             Waves.PlayerTransforms.Add(player.transform);
-            
-            // todo: add a countdown manager and enable it here, then once it's at go! we call PlayerController#EnableMovements()
         }
     }
 
