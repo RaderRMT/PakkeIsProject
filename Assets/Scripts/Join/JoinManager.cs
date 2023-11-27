@@ -68,6 +68,8 @@ public class JoinManager : MonoBehaviour {
             
             PositionHandler.PlayerPositions.Add(controller);
             Waves.PlayerTransforms.Add(player.transform);
+            
+            // todo: add a countdown manager and enable it here, then once it's at go! we call PlayerController#EnableMovements()
         }
     }
 

@@ -75,6 +75,8 @@ public class PlayerController : MonoBehaviour {
     private bool _isRotating;
     private float _rotationForce;
 
+    private bool _canMove = false;
+
     private void Start() {
         _maxHealth = Health;
         
@@ -177,6 +179,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void HandlePaddle() {
+        if (!_canMove) {
+            return;
+        }
+        
         if (!_isPaddling) {
             return;
         }
@@ -277,5 +283,13 @@ public class PlayerController : MonoBehaviour {
         foreach (SkinnedMeshRenderer mesh in Meshes) {
             mesh.material = playerMaterial;
         }
+    }
+
+    public void DisableMovements() {
+        _canMove = false;
+    }
+
+    public void EnableMovements() {
+        _canMove = true;
     }
 }
