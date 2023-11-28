@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     public RawImage PlayerIndexImage;
     public RawImage PlayerPositionRawImage;
     public List<SkinnedMeshRenderer> Meshes;
+    public Canvas FinishScreenCanvas;
 
     [Header("Player")]
     public int Health;
@@ -296,5 +297,9 @@ public class PlayerController : MonoBehaviour {
 
     public void EnableMovements() {
         _canMove = true;
+    }
+
+    public void ShowFinishScreen() {
+        FinishScreenCanvas.enabled = true;
     }
 }

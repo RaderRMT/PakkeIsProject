@@ -17,7 +17,7 @@ public class PositionHandler : MonoBehaviour {
             controller.PlayerPositionRawImage.texture = PositionSprites[i];
 
             if (controller.KayakRigidbody.transform.position.z > gameObject.transform.position.z) {
-                // todo: show finish screen and disable movements
+                controller.ShowFinishScreen();
                 controller.DisableMovements();
             }
         }
