@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour {
     // held paddle buttons
     private bool _isPaddling;
 
-    private float _targetAngle;
+    private float _targetOffsetAngle;
 
     // velocity slowdown stuff
     private float _previousMaximumVelocity;
@@ -146,8 +146,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void UpdateRotation() {
-        // todo: use the same code as the camera target stuff
-        Quaternion targetRotation = Quaternion.AngleAxis(_targetAngle, Vector3.up);
+        Quaternion targetRotation = Quaternion.AngleAxis(KayakRigidbody.gameObject.transform.rotation.y + _targetOffsetAngle, Vector3.up);
         
         KayakRigidbody.gameObject.transform.rotation = Quaternion.Lerp(
                 KayakRigidbody.gameObject.transform.rotation,
@@ -172,9 +171,9 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (_rotationDirection == Direction.LEFT) {
-            _targetAngle -= _rotationForce * AngleAddedPerPaddle * Time.deltaTime;
+            _targetOffsetAngle -= _rotationForce * AngleAddedPerPaddle * Time.deltaTime;
         } else if (_rotationDirection == Direction.RIGHT) {
-            _targetAngle += _rotationForce * AngleAddedPerPaddle * Time.deltaTime;
+            _targetOffsetAngle += _rotationForce * AngleAddedPerPaddle * Time.deltaTime;
         }
     }
 

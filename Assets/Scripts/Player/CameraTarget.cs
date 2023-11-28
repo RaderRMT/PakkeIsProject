@@ -7,7 +7,7 @@ public class CameraTarget : MonoBehaviour {
     public Vector3 locationOffset;
     public Vector3 rotationOffset;
     
-    void FixedUpdate() {
+    void Update() {
         UpdateCameraPosition();
     }
 
