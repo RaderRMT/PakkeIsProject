@@ -87,10 +87,10 @@ MonoBehaviour:
   - {fileID: 1319464952425701532}
   - {fileID: 1319464952845808367}
   TimeToPlayParticlesAfterPaddle: 1.5
-  PaddleCooldown: 1
-  PaddleForce: 10
+  PaddleCooldown: 0.5
+  PaddleForce: 15
   AngleAddedPerPaddle: 30
-  PaddleRotationForce: 1
+  PaddleRotationForce: 2
   PaddleForceCurveSamplePoints: 10
   ForceCurve:
     serializedVersion: 2
@@ -737,7 +737,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5462934459030919471}
-  m_LocalRotation: {x: 0.5457593, y: -0, z: -0, w: 0.837942}
+  m_LocalRotation: {x: 0.5446392, y: -0, z: -0, w: 0.83867043}
   m_LocalPosition: {x: 6e-45, y: 42.83162, z: -2.9977067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3068,7 +3068,7 @@ PrefabInstance:
     - target: {fileID: 333907971529626019, guid: 5c73073c45d62a54a853abc01ab6ca57,
         type: 3}
       propertyPath: m_Drag
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 333907971529626045, guid: 5c73073c45d62a54a853abc01ab6ca57,
         type: 3}
