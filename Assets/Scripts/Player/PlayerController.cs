@@ -108,8 +108,6 @@ public class PlayerController : MonoBehaviour {
 
         if (MaximumVelocity != 0) {
             Slowdown(0, NoHealthStunDuration);
-        } else {
-            Health = _maxHealth;
         }
     }
 
@@ -121,6 +119,10 @@ public class PlayerController : MonoBehaviour {
         _velocityTimer -= Time.deltaTime;
         if (_velocityTimer > 0) {
             return;
+        }
+
+        if (Health == 0) {
+            Health = _maxHealth;
         }
 
         // restore max velocity if the timer expired
