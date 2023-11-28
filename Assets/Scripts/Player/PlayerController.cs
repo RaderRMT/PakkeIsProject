@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour {
     private float _rotationForce;
 
     private bool _canMove = false;
+    public bool HasCrossedFinishLine { get; private set; }
 
     private void Start() {
         _maxHealth = Health;
@@ -301,5 +302,6 @@ public class PlayerController : MonoBehaviour {
 
     public void ShowFinishScreen() {
         FinishScreenCanvas.enabled = true;
+        HasCrossedFinishLine = true;
     }
 }

@@ -14,6 +14,7 @@ public class JoinManager : MonoBehaviour {
     public PlayerInputManager PlayerInputManager;
 
     public CountdownManager CountdownManager;
+    public ScoreScreen ScoreScreen;
     
     public GameObject PlayerPrefab;
     public Waves Waves;
@@ -66,6 +67,8 @@ public class JoinManager : MonoBehaviour {
             GameObject player = Instantiate(PlayerPrefab, spawnPosition.position, spawnPosition.rotation);
             PlayerController controller = player.GetComponent<PlayerController>();
             controller.Waves = Waves;
+            
+            ScoreScreen.Players.Add(controller);
 
             player.name = "Player " + (infos[i].PlayerIndex + 1);
             controller.InitPlayer(player.name, PlayerIndexTextures[infos[i].PlayerIndex], PlayerMaterials[infos[i].PlayerIndex]);
