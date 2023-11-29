@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ public class AttackController : MonoBehaviour {
         }
 
         HeldItemImage.texture = attackItem.Sprite;
-        HeldItemImage.color = new Color(1, 1, 1, 1);
+        HeldItemImage.color = Color.white;
         _heldAttackItem = attackItem;
     }
     
@@ -42,14 +43,25 @@ public class AttackController : MonoBehaviour {
         
         _heldAttackItem = null;
         HeldItemImage.texture = null;
-        HeldItemImage.color = new Color(1, 1, 1, 0);
+        HeldItemImage.color = Color.clear;
     }
 
     private PlayerController FindClosestPlayer() {
-        return FindObjectsByType<PlayerController>(FindObjectsSortMode.None)
-                .Where(p => p.transform.position != transform.position)
-                .OrderBy(p => Vector3.Distance(p.transform.position, transform.position))
-                .FirstOrDefault();
+        PlayerController[] playerControllers = FindObjectsByType<PlayerController>(FindObjectsSortMode.None)
+            .Where(p => p.KayakRigidbody.transform.position != KayakTransform.position)
+            .OrderBy(p => Vector3.Distance(p.KayakRigidbody.transform.position, KayakTransform.position))
+            .ToArray();
+
+        PlayerController target = playerControllers.FirstOrDefault(p => p.KayakRigidbody.transform.position.z > KayakTransform.position.z);
+        if (target != null) {
+            return target;
+        }
+
+        if (playerControllers.Length != 0) {
+            return playerControllers[0];
+        }
+
+        return null;
     }
 
     public bool HasItem() {
