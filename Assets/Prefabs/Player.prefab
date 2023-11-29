@@ -78,7 +78,7 @@ MonoBehaviour:
   - {fileID: 5057828565214716840}
   FinishScreenCanvas: {fileID: 7492317553162236235}
   Health: 2
-  NoHealthStunDuration: 2
+  NoHealthStunDuration: 4
   KayakRigidbody: {fileID: 1319464952143420233}
   TimeBetweenSamplePoints: 0.1
   MaximumVelocity: 10
