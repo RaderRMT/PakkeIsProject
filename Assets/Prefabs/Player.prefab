@@ -77,6 +77,8 @@ MonoBehaviour:
   - {fileID: 4628427626844423390}
   - {fileID: 5057828565214716840}
   FinishScreenCanvas: {fileID: 7492317553162236235}
+  HitColor: {r: 1, g: 0, b: 0, a: 0}
+  HitAnimationDuration: 1
   Volume: 0.423
   PaddleSound: {fileID: 8300000, guid: cc79f0cc1ba16294cb28181e5ed1db4e, type: 3}
   GotObjectSound: {fileID: 0}
@@ -727,7 +729,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1485977760646681201}
   - component: {fileID: 1521773109796289043}
-  - component: {fileID: 5314377774728546064}
   - component: {fileID: 6093566399307283596}
   - component: {fileID: 3785208106633461129}
   m_Layer: 0
@@ -803,14 +804,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5314377774728546064
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5462934459030919471}
-  m_Enabled: 1
 --- !u!114 &6093566399307283596
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour {
     public List<SkinnedMeshRenderer> Meshes;
     public Canvas FinishScreenCanvas;
 
+    [Header("Hit Animation")]
+    public Color HitColor;
+    public float HitAnimationDuration;
+    private List<Color> colorBackup = new List<Color>();
+    private float _currentHitAnimationDuration;
+
     [Header("Sounds")]
     [Range(min:0, max:1)]
     public float Volume;
@@ -104,6 +110,29 @@ public class PlayerController : MonoBehaviour {
         HandleRotation();
         ManageParticlePaddle();
         UpdateRotation();
+        UpdateHitAnimation();
+    }
+
+    private void UpdateHitAnimation() {
+        if (_currentHitAnimationDuration >= HitAnimationDuration) {
+            return;
+        }
+
+        _currentHitAnimationDuration += Time.deltaTime;
+        if (_currentHitAnimationDuration < HitAnimationDuration) {
+            return;
+        }
+
+        RestoreHitColor();
+    }
+
+    private void RestoreHitColor() {
+        for (int i = 0; i < Meshes.Count; i++) {
+            SkinnedMeshRenderer mesh = Meshes[i];
+            Color color = colorBackup[i];
+
+            mesh.material.color = color;
+        }
     }
 
     private void CheckHealth() {
@@ -117,6 +146,17 @@ public class PlayerController : MonoBehaviour {
 
         if (MaximumVelocity != 0) {
             Slowdown(0, NoHealthStunDuration);
+        }
+    }
+
+    public void PlayHitAnimation() {
+        _currentHitAnimationDuration = 0;
+        
+        for (int i = 0; i < Meshes.Count; i++) {
+            SkinnedMeshRenderer mesh = Meshes[i];
+            colorBackup.Add(mesh.material.color);
+
+            mesh.material.color = HitColor;
         }
     }
 

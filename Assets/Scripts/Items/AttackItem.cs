@@ -32,6 +32,8 @@ public abstract class AttackItem : MonoBehaviour {
         AudioSource.PlayClipAtPoint(controller.HitSound, controller.KayakRigidbody.transform.position, controller.Volume);
         
         Use(controller);
+        controller.PlayHitAnimation();
+        
         Destroy(gameObject);
     }
 }

@@ -20,12 +20,12 @@ public class ItemBox : MonoBehaviour {
             return;
         }
 
-        controller.SetAttackItem(GetRandomItem());
         DisableBox();
+        controller.SetAttackItem(GetRandomItem());
     }
 
     private void DisableBox() {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
 
