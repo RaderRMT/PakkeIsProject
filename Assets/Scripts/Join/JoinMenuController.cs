@@ -1,12 +1,16 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class JoinMenuController : MonoBehaviour {
 
     public TMP_Text PlayerText;
     public GameObject ReadyText;
     public PlayerInput PlayerInput;
+    public RawImage PlayerColorImage;
+    public List<Texture> PlayerTextures;
     
     public PlayerController PlayerController { get; set; }
 
@@ -57,6 +61,7 @@ public class JoinMenuController : MonoBehaviour {
         _playerIndex = index;
         
         PlayerText.text = "Player " + (index + 1);
+        PlayerColorImage.texture = PlayerTextures[index];
     }
 
     public void StartGame() {

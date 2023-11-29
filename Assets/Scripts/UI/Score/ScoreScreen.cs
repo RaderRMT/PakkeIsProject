@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreScreen : MonoBehaviour {
 
@@ -13,8 +14,14 @@ public class ScoreScreen : MonoBehaviour {
     public GameObject ScoreEntryList;
     public GameObject ScoreEntryPrefab;
 
+    public string MainMenuSceneName;
+
     void Update() {
         if (ScoreScreenCanvas.enabled) {
+            if (Input.anyKey) {
+                SceneManager.LoadScene(MainMenuSceneName);
+            }
+            
             return;
         }
 
