@@ -10,6 +10,8 @@ public class CountdownManager : MonoBehaviour {
     public Texture[] CountdownTextures;
     public float TimeBeforeCountdownStart;
 
+    public SoundManager SoundManager;
+
     private int currentTexture = 3;
     private float _currentCountdownTime = 3;
     private float _currentTimeBeforeCountdownStart;
@@ -21,7 +23,6 @@ public class CountdownManager : MonoBehaviour {
 
         CountdownRawImage.color = Color.clear;
         SetCountdownImage(CountdownTextures.Length - 1);
-        
     }
 
     private void SetCountdownImage(int index) {
@@ -66,6 +67,8 @@ public class CountdownManager : MonoBehaviour {
     public void ShowCountdown(Action onCooldownOver) {
         Canvas.enabled = true;
         _onCooldownOver = onCooldownOver;
+
+        SoundManager.PlayBackgroundSong();
     }
 }
 

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using WaterAndFloating;
 
@@ -22,6 +21,14 @@ public class PlayerController : MonoBehaviour {
     public RawImage PlayerPositionRawImage;
     public List<SkinnedMeshRenderer> Meshes;
     public Canvas FinishScreenCanvas;
+
+    [Header("Sounds")]
+    [Range(min:0, max:1)]
+    public float Volume;
+    public AudioClip PaddleSound;
+    public AudioClip GotObjectSound;
+    public AudioClip ThrowObjectSound;
+    public AudioClip HitSound;
 
     [Header("Player")]
     public int Health;
@@ -213,6 +220,8 @@ public class PlayerController : MonoBehaviour {
         }
         
         MonoBehaviourRef.StartCoroutine(PaddleForceCurve());
+        
+        AudioSource.PlayClipAtPoint(PaddleSound, KayakRigidbody.transform.position, Volume);
 
         string paddleAnimation;
         if (direction == Direction.RIGHT) {

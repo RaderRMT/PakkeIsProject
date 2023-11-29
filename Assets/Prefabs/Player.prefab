@@ -77,6 +77,11 @@ MonoBehaviour:
   - {fileID: 4628427626844423390}
   - {fileID: 5057828565214716840}
   FinishScreenCanvas: {fileID: 7492317553162236235}
+  Volume: 0.423
+  PaddleSound: {fileID: 8300000, guid: cc79f0cc1ba16294cb28181e5ed1db4e, type: 3}
+  GotObjectSound: {fileID: 0}
+  ThrowObjectSound: {fileID: 8300000, guid: 9dc32e7fa53cf4940acc7f48483736f1, type: 3}
+  HitSound: {fileID: 8300000, guid: afd6d421b02d4aa448f871f0cad96c78, type: 3}
   Health: 2
   NoHealthStunDuration: 4
   KayakRigidbody: {fileID: 1319464952143420233}
@@ -134,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e06de1c8a047fb98feec0ab7f5eef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KayakTransform: {fileID: 1319464952143420234}
+  PlayerController: {fileID: 7045105159207104733}
   HeldItemImage: {fileID: 6480363591103039394}
 --- !u!1 &1277110288806521841
 GameObject:

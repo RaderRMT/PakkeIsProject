@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AttackController : MonoBehaviour {
 
-    public Transform KayakTransform;
+    public PlayerController PlayerController;
     private AttackItem _heldAttackItem;
 
     public RawImage HeldItemImage;
@@ -23,6 +23,8 @@ public class AttackController : MonoBehaviour {
         HeldItemImage.texture = attackItem.Sprite;
         HeldItemImage.color = Color.white;
         _heldAttackItem = attackItem;
+        
+        AudioSource.PlayClipAtPoint(PlayerController.GotObjectSound, PlayerController.KayakRigidbody.transform.position, PlayerController.Volume);
     }
     
     public void UseHeldItem() {
@@ -34,9 +36,11 @@ public class AttackController : MonoBehaviour {
         if (controller == null) {
             return;
         }
+        
+        AudioSource.PlayClipAtPoint(PlayerController.ThrowObjectSound, PlayerController.KayakRigidbody.transform.position, PlayerController.Volume);
 
         GameObject attackItem = Instantiate(_heldAttackItem.gameObject);
-        attackItem.transform.position = KayakTransform.position;
+        attackItem.transform.position = PlayerController.KayakRigidbody.transform.position;
         attackItem.transform.LookAt(controller.KayakRigidbody.transform.position);
 
         attackItem.GetComponent<AttackItem>().Init(gameObject);
@@ -48,11 +52,11 @@ public class AttackController : MonoBehaviour {
 
     private PlayerController FindClosestPlayer() {
         PlayerController[] playerControllers = FindObjectsByType<PlayerController>(FindObjectsSortMode.None)
-            .Where(p => p.KayakRigidbody.transform.position != KayakTransform.position)
-            .OrderBy(p => Vector3.Distance(p.KayakRigidbody.transform.position, KayakTransform.position))
+            .Where(p => p.KayakRigidbody.transform.position != PlayerController.KayakRigidbody.transform.position)
+            .OrderBy(p => Vector3.Distance(p.KayakRigidbody.transform.position, PlayerController.KayakRigidbody.transform.position))
             .ToArray();
 
-        PlayerController target = playerControllers.FirstOrDefault(p => p.KayakRigidbody.transform.position.z > KayakTransform.position.z);
+        PlayerController target = playerControllers.FirstOrDefault(p => p.KayakRigidbody.transform.position.z > PlayerController.KayakRigidbody.transform.position.z);
         if (target != null) {
             return target;
         }
